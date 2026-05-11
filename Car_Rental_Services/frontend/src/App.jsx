@@ -9,6 +9,7 @@ import CarDetailPage from "./pages/CarDetailPage";
 import { FaArrowUp } from "react-icons/fa";
 import VerifyPaymentPage from "./pages/VerifyPaymentPage";
 import MyBooking from "./pages/MyBooking";
+import RecommendationPage from "./pages/RecommendationPage";
 // PROTECTED ROUTE
 const ProtectedRoute = ({ children }) => {
   const location = useLocation();
@@ -50,6 +51,7 @@ const App = () => {
 
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/cars" element={<CarPage />} />
+        <Route path="/recommendations" element={<RecommendationPage />} />
         <Route
           path="/cars/:id"
           element={

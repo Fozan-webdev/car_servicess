@@ -3,43 +3,43 @@ import { FaStar, FaQuoteLeft, FaCar, FaRoad, FaKey, FaMapMarkerAlt } from 'react
 
 export const navbarStyles = {
   nav: {
-    base: "fixed w-full top-0 z-50 transition-all duration-300",
-    scrolled: "py-2",
-    notScrolled: "py-4"
+    base: "fixed w-full top-0 z-[100] transition-all duration-500",
+    scrolled: "py-3 bg-black/80 backdrop-blur-2xl border-b border-white/5 shadow-2xl",
+    notScrolled: "py-6 bg-transparent"
   },
   floatingNav: {
-    base: "bg-white/95 backdrop-blur-md w-full rounded-full shadow-lg border border-gray-200 transition-all duration-300",
-    scrolled: "py-2 px-4 md:px-6",
-    notScrolled: "py-3 px-5 md:px-8"
+    base: "w-full transition-all duration-500",
+    scrolled: "px-4 md:px-8",
+    notScrolled: "px-6 md:px-12"
   },
-  logoContainer: "flex flex-col items-center text-xl md:text-2xl lg:text-2xl leading-none",
-  logoText: "font-bold tracking-wider text-gray-900",
-  navLinksContainer: "hidden md:flex md:items-center md:justify-center md:flex-1",
-  navLinksInner: "flex items-center space-x-2 md:space-x-4 lg:space-x-6",
+  logoContainer: "flex items-center gap-3 group",
+  logoText: "font-['Pacifico'] font-bold text-xl md:text-2xl tracking-wider bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent",
+  navLinksContainer: "hidden md:flex items-center justify-center flex-1",
+  navLinksInner: "flex items-center bg-white/5 p-1 rounded-full border border-white/10 backdrop-blur-md",
   navLink: {
-    base: "px-3 py-2 rounded-md text-sm font-medium transition-colors",
-    active: "text-orange-600 underline underline-offset-4",
-    inactive: "text-gray-700 hover:text-orange-500"
+    base: "px-5 py-2 rounded-full text-sm font-bold transition-all duration-300",
+    active: "bg-orange-500 text-white shadow-lg shadow-orange-500/30",
+    inactive: "text-gray-400 hover:text-white hover:bg-white/5"
   },
-  separator: "hidden md:block h-6 w-px bg-gray-300 mx-2",
-  userActions: "hidden md:flex md:items-center md:justify-end md:gap-4",
-  authButton: "flex items-center gap-2 cursor-pointer text-gray-700 hover:text-orange-500 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-300 rounded-md px-3 py-2",
-  authText: "text-sm font-medium",
-  mobileMenuButton: "p-2 rounded-md text-gray-700 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-300",
+  separator: "hidden",
+  userActions: "hidden md:flex items-center gap-4",
+  authButton: "flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold text-sm shadow-lg hover:shadow-orange-500/40 transition-all active:scale-95 cursor-pointer",
+  authText: "hidden lg:block",
+  mobileMenuButton: "p-2.5 rounded-xl bg-white/5 border border-white/10 text-orange-400 hover:bg-orange-500 hover:text-white transition-all cursor-pointer",
   mobileMenu: {
-    container: "md:hidden transition-all duration-200 overflow-hidden",
-    open: "max-h-[400px] opacity-100",
-    closed: "max-h-0 opacity-0 pointer-events-none"
+    container: "fixed inset-0 z-[90] md:hidden transition-all duration-500",
+    open: "opacity-100 pointer-events-auto",
+    closed: "opacity-0 pointer-events-none"
   },
-  mobileMenuInner: "bg-white border-t border-gray-200 shadow-lg mt-2 rounded-b-lg mx-3",
-  mobileGrid: "grid grid-cols-1 sm:grid-cols-2 gap-2",
+  mobileMenuInner: "flex flex-col items-center justify-center h-full space-y-8 bg-black/95 backdrop-blur-3xl",
+  mobileGrid: "flex flex-col gap-6 w-full px-12 items-center",
   mobileLink: {
-    base: "block w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-colors",
-    active: "bg-gray-50 text-orange-600",
-    inactive: "text-gray-700 hover:bg-gray-50"
+    base: "text-3xl font-bold transition-all font-['Pacifico']",
+    active: "text-orange-500 scale-110",
+    inactive: "text-white/20 hover:text-white"
   },
-  divider: "border-t border-gray-100 my-1",
-  mobileAuthButton: "w-full flex items-center px-4 py-3 text-left rounded-lg text-gray-700 hover:bg-gray-50 transition-colors"
+  divider: "w-24 h-px bg-white/10",
+  mobileAuthButton: "px-10 py-4 rounded-full bg-orange-600 text-white text-xl font-bold shadow-2xl cursor-pointer"
 };
 
 
@@ -501,4 +501,48 @@ export const myBookingsStyles = {
   modalActions: "flex gap-4",
   closeButton: "flex-1 py-3 px-4 bg-gray-700 hover:bg-gray-600 rounded-lg",
   modalBookButton: "flex-1 py-3 px-4 bg-orange-600 hover:bg-orange-700 rounded-lg flex items-center justify-center gap-2",
+};
+
+export const recommendationStyles = {
+  pageContainer: "min-h-screen bg-black flex flex-col text-white pt-24",
+  heroSection: "relative pt-20 pb-16 overflow-hidden",
+  heroGlow1: "absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl opacity-50",
+  heroGlow2: "absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl opacity-50",
+  heroContent: "container mx-auto px-6 relative z-10",
+  heroTitle: "text-4xl md:text-6xl font-bold mb-6 leading-tight font-['Pacifico']",
+  heroTitleAccent: "text-orange-500",
+  heroSubtitle: "text-lg text-gray-400 mb-10 leading-relaxed max-w-2xl mx-auto text-center",
+  
+  formCard: "max-w-5xl mx-auto bg-gray-900/40 rounded-3xl backdrop-blur-xl border border-white/5 p-8 md:p-12 shadow-2xl",
+  formGrid: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8",
+  inputGroup: "space-y-2",
+  label: "text-sm font-semibold text-gray-300 flex items-center gap-2",
+  input: "w-full px-4 py-3 bg-black border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all text-white placeholder-gray-500",
+  select: "w-full px-4 py-3 bg-black border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 transition-all text-white appearance-none cursor-pointer",
+  
+  submitButton: "metal-btn w-full py-4 rounded-xl flex items-center justify-center gap-3 group disabled:opacity-70",
+  
+  resultsSection: "container mx-auto px-6 py-20 flex-grow",
+  emptyState: "text-center py-20 bg-gray-900/30 rounded-3xl border border-dashed border-gray-800 backdrop-blur-md",
+  resultsHeader: "flex items-center justify-between mb-12",
+  resultsTitle: "text-3xl font-bold text-white flex items-center gap-3 font-['Pacifico']",
+  
+  carCard: "group bg-gray-900/40 rounded-3xl overflow-hidden border border-white/5 hover:border-orange-500/30 hover:shadow-2xl hover:shadow-orange-500/10 transition-all duration-500 flex flex-col backdrop-blur-md",
+  imageContainer: "relative aspect-[16/10] overflow-hidden",
+  carImage: "w-full h-full object-cover group-hover:scale-110 transition-transform duration-700",
+  categoryBadge: "absolute top-4 left-4 px-3 py-1.5 bg-black/60 backdrop-blur-md rounded-full text-xs font-bold text-white border border-white/10",
+  matchBadge: "absolute top-4 right-4 px-3 py-1.5 bg-orange-600 rounded-full text-xs font-bold text-white shadow-lg",
+  
+  cardBody: "p-8 flex flex-col flex-grow",
+  carName: "text-2xl font-bold text-white group-hover:text-orange-500 transition-colors",
+  carMeta: "text-gray-500",
+  priceContainer: "text-right",
+  priceValue: "text-2xl font-black text-white",
+  priceLabel: "text-[10px] font-bold text-gray-500 uppercase tracking-wider",
+  
+  specsContainer: "grid grid-cols-2 gap-4 my-8",
+  specItem: "flex items-center gap-3 p-3 bg-white/5 rounded-xl border border-white/5",
+  specValue: "text-sm font-semibold text-gray-300 truncate",
+  
+  viewButton: "mt-auto w-full py-4 bg-white/5 hover:bg-orange-600 text-white font-bold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group/btn",
 };

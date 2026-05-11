@@ -158,3 +158,38 @@ export const deleteCar = async (req, res, next) => {
     }
 }
 
+// RECOMMENDATION FUNCTION
+export const recommendCars = async (req, res, next) => {
+    try {
+        const { budget, category, seats, transmission, fuelType } = req.query;
+
+        const query = { status: 'available' };
+
+        if (category) query.category = category;
+        if (seats) query.seats = { $gte: Number(seats) };
+        if (transmission) query.transmission = transmission;
+        if (fuelType) query.fuelType = fuelType;
+        if (budget) query.dailyRate = { $lte: Number(budget) };
+
+        const cars = await Car.find(query).limit(10);
+
+        // Simple scoring algorithm
+        const scoredCars = cars.map(car => {
+            let score = 0;
+            if (category && car.category === category) score += 30;
+            if (budget && car.dailyRate <= Number(budget)) score += 40;
+            if (seats && car.seats >= Number(seats)) score += 10;
+            if (transmission && car.transmission === transmission) score += 10;
+            if (fuelType && car.fuelType === fuelType) score += 10;
+
+            const plain = car.toObject();
+            plain.matchPercentage = score;
+            plain.availability = car.getAvailabilitySummary();
+            return plain;
+        }).sort((a, b) => b.matchPercentage - a.matchPercentage);
+
+        res.json(scoredCars);
+    } catch (err) {
+        next(err);
+    }
+}

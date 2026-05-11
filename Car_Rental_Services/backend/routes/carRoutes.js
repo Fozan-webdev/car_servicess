@@ -1,10 +1,11 @@
 import express from 'express';
-import { createCar, deleteCar, getCarById, getCars, updateCar } from '../controllers/carController.js';
+import { createCar, deleteCar, getCarById, getCars, updateCar, recommendCars } from '../controllers/carController.js';
 import { uploads } from '../middlewares/uploads.js';
 
 const carRouter = express.Router();
 
 carRouter.get('/', getCars);
+carRouter.get('/recommend', recommendCars);
 carRouter.get('/:id', getCarById);
 carRouter.post('/', uploads.single('image'), createCar);
 
