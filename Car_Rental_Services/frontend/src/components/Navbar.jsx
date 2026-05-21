@@ -153,11 +153,11 @@ const Navbar = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center z-[101]">
               <div className={styles.logoContainer}>
-                <img
+                {/* <img
                   src={logo}
                   alt="GCB Logo"
                   className="h-10 w-auto"
-                />
+                /> */}
                 <span className={styles.logoText}>GCB Services</span>
               </div>
             </Link>
